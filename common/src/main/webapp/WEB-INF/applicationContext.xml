@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:ws="http://jax-ws.dev.java.net/spring/core"
+       xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://jax-ws.dev.java.net/spring/core
+        http://jax-ws.dev.java.net/spring/core.xsd
+        http://jax-ws.dev.java.net/spring/servlet
+        http://jax-ws.dev.java.net/spring/servlet.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+>
+
+    <context:annotation-config />
+    <context:component-scan base-package="by.epam"/>
+    <import resource="hibernate.xml" />
+
+    <wss:binding url="/JaxwsTicket">
+        <wss:service>
+            <ws:service bean="#JaxwsTicket"/>
+        </wss:service>
+    </wss:binding>
+
+    <!-- Web service methods -->
+    <bean id="JaxwsTicket" class="by.epam.controller.JaxwsController"/>
+
+    <!--beans-->
+    <bean id="RailwayTicketService" class="by.epam.service.impl.RailwayTicketService"/>
+</beans>

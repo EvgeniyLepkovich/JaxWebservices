@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <person personId="1" name="Evgeniy" surname="Lepkovich" secondName="Olegovich" birthday="1991-03-03 03:03:03"/>
+
+    <ticketStatus ticketStatusId="1" ticketStatus="Free"/>
+    <ticketStatus ticketStatusId="2" ticketStatus="Book"/>
+
+    <railwayTicket ticketId="1" ticketNumber="wqeq-214-qerqw-cxz" cityFrom="Minsk" cityTo="Gomel" oneWay="2017-03-03 03:03:03" roundTrip="2017-03-04 03:03:03" ticketStatusId="1" personId="1"/>
+</dataset>
