@@ -1,7 +1,6 @@
 package dbunit;
 
 
-
 import by.epam.persistance.dao.RailwayTicketDao;
 import by.epam.persistance.dto.RailwayTicket;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
@@ -21,6 +20,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/hibernate-test.xml")
@@ -42,18 +45,22 @@ public class RailwayTicketTest {
         Assert.assertNotNull(railwayTicket);
     }
 
-//    @Test
-//    @Rollback(false)
-//    @DatabaseSetup(value = "classpath:testData/railwayTicket/railwayTicket.xml")
-//    @ExpectedDatabase(value = "classpath:testData/railwayTicket/railwayTicketUpdate.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
-//    public void setTicketStatusIdByTicketIdTest(){
-//        railwayTicketDao.changeTicketStatus(new Long(2), "wqeq-214-qerqw-cxz");
-//    }
+    @Test
+    @Transactional
+    @Rollback(false)
+    @DatabaseSetup(value = "classpath:testData/railwayTicket/railwayTicket.xml")
+    @ExpectedDatabase(value = "classpath:testData/railwayTicket/railwayTicketUpdate.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void setTicketStatusIdByTicketIdTest(){
+        railwayTicketDao.changeTicketStatus(new Long(2), "wqeq-214-qerqw-cxz");
+    }
 
-//    @Test
-//    @DatabaseSetup(value = "classpath:testData/railwayTicket/railwayTicket.xml")
-//    @ExpectedDatabase(value = "classpath:testData/railwayTicket/railwayTicketDelete.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
-//    public void deleteByTicketNumberTest(){
-//        railwayTicketDao.deleteByTicketNumber("wqeq-215-qerqw-cxz");
-//    }
+    @Test
+    @Transactional
+    @Rollback(false)
+    @DatabaseSetup(value = "classpath:testData/railwayTicket/railwayTicket.xml")
+    @ExpectedDatabase(value = "classpath:testData/railwayTicket/railwayTicketDelete.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void deleteByTicketNumberTest(){
+        railwayTicketDao.deleteByTicketNumber("wqeq-215-qerqw-cxz");
+        List<RailwayTicket> myList = new ArrayList<RailwayTicket>();
+    }
 }

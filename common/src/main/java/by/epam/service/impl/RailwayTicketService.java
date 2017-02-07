@@ -28,11 +28,6 @@ public class RailwayTicketService implements IRailwayTicketService {
         return railwayTicketDao.save(entity);
     }
 
-//    @WebMethod
-//    public <S extends railwayTicket> Iterable<S> save(Iterable<S> entities) {
-//        return railwayTicketDao.save(entities);
-//    }
-
     public RailwayTicket findOne(Long id) {
         return railwayTicketDao.findOne(id);
     }
@@ -40,11 +35,6 @@ public class RailwayTicketService implements IRailwayTicketService {
     public boolean exists(Long id) {
         return railwayTicketDao.exists(id);
     }
-
-//    @WebMethod
-//    public Iterable<railwayTicket> findAll() {
-//        return railwayTicketDao.findAll();
-//    }
 
     public long count() {
         return railwayTicketDao.count();
@@ -57,11 +47,6 @@ public class RailwayTicketService implements IRailwayTicketService {
     public void delete(RailwayTicket entity) {
         railwayTicketDao.delete(entity);
     }
-
-//    @WebMethod
-//    public void delete(Iterable<? extends railwayTicket> entities) {
-//        railwayTicketDao.delete(entities);
-//    }
 
     public void deleteAll() {
         railwayTicketDao.deleteAll();
@@ -84,7 +69,7 @@ public class RailwayTicketService implements IRailwayTicketService {
         if (railwayTicket == null){
             return NO_FREE_TICKETS;
         }
-//        railwayTicketDao.changeTicketStatus(new Long(2), railwayTicket.getTicketNumber());
+        railwayTicketDao.changeTicketStatus(new Long(2), railwayTicket.getTicketNumber());
         return railwayTicket.getTicketNumber();
     }
 

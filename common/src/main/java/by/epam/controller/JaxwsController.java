@@ -16,22 +16,22 @@ public class JaxwsController {
     private IRailwayTicketService railwayTicketService;
 
     @WebMethod
-    public RailwayTicket getTicketByNumber(@PathParam("ticketNumber") String ticketNumber){
+    public RailwayTicket getTicketByNumber(String ticketNumber){
         return railwayTicketService.findByTicketNumber(ticketNumber);
     }
 
     @WebMethod
-    public String removeTicket(@PathParam("ticketNumber") String ticketNumber) throws Exception{
+    public String removeTicket(String ticketNumber) throws Exception{
         return railwayTicketService.deleteByTicketNumber(ticketNumber);
     }
 
     @WebMethod
-    public String payForTicket(@PathParam("ticketNumber") String ticketNumber) throws Exception {
+    public String payForTicket(String ticketNumber) throws Exception {
         return railwayTicketService.payForTicket(ticketNumber);
     }
 
     @WebMethod
-    public String bookTicket(@PathParam("name") String name, @PathParam("surname") String surname, @PathParam("secondName") String secondName) throws Exception {
+    public String bookTicket(String name, String surname, String secondName) throws Exception {
         Person person = new Person();
         person.setName(name);
         person.setSurname(surname);

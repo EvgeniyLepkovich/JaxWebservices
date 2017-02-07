@@ -6,4 +6,5 @@
     <ticketStatus ticketStatusId="2" ticketStatus="Book"/>
 
     <railwayTicket ticketId="1" ticketNumber="wqeq-214-qerqw-cxz" cityFrom="Minsk" cityTo="Gomel" oneWay="2017-03-03 03:03:03" roundTrip="2017-03-04 03:03:03" ticketStatusId="2" personId="1"/>
+    <railwayTicket ticketId="2" ticketNumber="wqeq-215-qerqw-cxz" cityFrom="Minsk" cityTo="Gomel" oneWay="2017-03-03 03:03:03" roundTrip="2017-03-04 03:03:03" ticketStatusId="2" personId="1"/>
 </dataset>
